@@ -10,11 +10,11 @@
 \LoadClass[
     paper=a4,
     fontsize=11pt,
-    disablejfam,
-    head_space=25mm,
-    foot_space=25mm,
-    gutter=25mm,
-    fore-edge=25mm,
+    % disablejfam,
+    % head_space=25mm,
+    % foot_space=25mm,
+    % gutter=25mm,
+    % fore-edge=25mm,
     book]
     {jlreq}
 
@@ -27,6 +27,7 @@
 
 
 \RequirePackage{graphicx} % 図表関連のパッケージ
+% \graphicspath{{./figures}{./images}{./img}{./graph}}
 \RequirePackage[unicode,hidelinks,pdfusetitle]{hyperref} % ハイパーリンクのパッケージ
 \PassOptionsToPackage{hyphens}{url}
 \RequirePackage{setspace} % 行間設定用パッケージ
@@ -67,23 +68,22 @@
 \renewcommand*{\thesubfigure}{(\alph{subfigure})}
 \captionsetup[table]{labelsep=space, labelformat=simple, name=Table}
 
-% sectionのサイズを合わせる
-\RenewBlockHeading{chapter}{0}{indent=1\jlreq@zw,lines=6,label_format={第\thechapter 章},font={\huge},after_label_space=1\jlreq@zw,second_heading_text_indent={-1\jlreq@zw,1\jlreq@zw},subtitle_font={\jlreq@keepbaselineskip{\Large}}}
-\RenewBlockHeading{section}{1}{font={\jlreq@keepbaselineskip{\normalsize\bfseries}},after_label_space=1\jlreq@zw}
-\RenewBlockHeading{subsection}{2}{font={\jlreq@keepbaselineskip{\normalsize\bfseries}},after_label_space=1\jlreq@zw}
-\RenewBlockHeading{subsubsection}{3}{font={\jlreq@keepbaselineskip{\normalsize\bfseries}},after_label_space=1\jlreq@zw}
-
-% セクション類の空白の設定
+% % sectionのサイズを合わせる
+% \RenewBlockHeading{chapter}{0}{indent=1\jlreq@zw,lines=6,label_format={第\thechapter 章},font={\huge},after_label_space=1\jlreq@zw,second_heading_text_indent={-1\jlreq@zw,1\jlreq@zw},subtitle_font={\jlreq@keepbaselineskip{\Large}}}
+% \RenewBlockHeading{section}{1}{font={\jlreq@keepbaselineskip{\normalsize\bfseries}},after_label_space=1\jlreq@zw}
+% \RenewBlockHeading{subsection}{2}{font={\jlreq@keepbaselineskip{\normalsize\bfseries}},after_label_space=1\jlreq@zw}
+% \RenewBlockHeading{subsubsection}{3}{font={\jlreq@keepbaselineskip{\normalsize\bfseries}},after_label_space=1\jlreq@zw}
+% % セクション類の空白の設定
 % \ModifyHeading{section}{before_space=5pt, after_space=5pt}
 % \ModifyHeading{subsection}{before_space=5pt, after_space=5pt}
 % \ModifyHeading{subsubsection}{before_space=5pt, after_space=5pt}
-% セクションタイトルが一行以下なら下、２行以上なら上
-\ModifyHeading{section}{lines=1}
-\ModifyHeading{subsection}{lines=1}
-\ModifyHeading{subsubsection}{lines=1}
+% % セクションタイトルが一行以下なら下、２行以上なら上
+% \ModifyHeading{section}{lines=1}
+% \ModifyHeading{subsection}{lines=1}
+% \ModifyHeading{subsubsection}{lines=1}
 
 \setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{4}
+\setcounter{secnumdepth}{3}
 
 \renewcommand\topfraction{.99} % 頁上部のfloatで占める最大の割合 
 \renewcommand\bottomfraction{.99} % 頁下部のfloatで占める最大の割合
