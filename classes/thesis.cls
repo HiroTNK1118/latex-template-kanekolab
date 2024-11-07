@@ -57,10 +57,10 @@
 
 
 % キャプションとサブキャプションの設定
-\captionsetup[figure]{labelsep=space, labelformat=simple, name=Fig.}
-\captionsetup[subfigure]{labelsep=space, labelformat=simple, name=Fig.}
+\captionsetup[figure]{labelsep=space, labelformat=simple, name=図}
+\captionsetup[subfigure]{labelsep=space, labelformat=simple, name=図}
 \renewcommand*{\thesubfigure}{(\alph{subfigure})}
-\captionsetup[table]{labelsep=space, labelformat=simple, name=Table}
+\captionsetup[table]{labelsep=space, labelformat=simple, name=表}
 
 % % sectionのサイズを合わせる
 % \RenewBlockHeading{chapter}{0}{indent=1\jlreq@zw,lines=6,label_format={第\thechapter 章},font={\huge},after_label_space=1\jlreq@zw,second_heading_text_indent={-1\jlreq@zw,1\jlreq@zw},subtitle_font={\jlreq@keepbaselineskip{\Large}}}
@@ -76,8 +76,8 @@
 % \ModifyHeading{subsection}{lines=1}
 % \ModifyHeading{subsubsection}{lines=1}
 
-\setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{3}
+% \setcounter{tocdepth}{2}
+% \setcounter{secnumdepth}{3}
 
 \renewcommand\topfraction{.99} % 頁上部のfloatで占める最大の割合 
 \renewcommand\bottomfraction{.99} % 頁下部のfloatで占める最大の割合
