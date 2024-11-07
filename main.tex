@@ -59,13 +59,13 @@
     金子 敬一 教授
 }
 
-\frontmatter
+\pagenumbering{roman}
 \subfile{sections/title.tex}
 \subfile{sections/abstract.tex}
 \tableofcontents
 \clearpage
 
-\mainmatter
+\pagenumbering{arabic}
 \subfile{sections/intro.tex}
 \subfile{sections/relatedwork.tex}
 \subfile{sections/method.tex}
@@ -73,7 +73,7 @@
 \subfile{sections/discussion.tex}
 \subfile{sections/conclusion.tex}
 
-\backmatter
+
 \subfile{sections/acknowledgment.tex}
 \newpage
 \subfile{sections/references.tex}

@@ -8,15 +8,9 @@
 
 % 1段組み,A4,フォントサイズ11pt
 \LoadClass[
-    paper=a4,
-    fontsize=11pt,
-    % disablejfam,
-    % head_space=25mm,
-    % foot_space=25mm,
-    % gutter=25mm,
-    % fore-edge=25mm,
-    book]
-    {jlreq}
+    a4paper,
+    11pt
+]{ltjsreport}
 
 
 % LuaTeXを日本語で使うための設定
