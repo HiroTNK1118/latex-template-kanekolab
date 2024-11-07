@@ -1,0 +1,16 @@
+{
+  "name": "LaTeX on DevContainer",
+  "image": "ghcr.io/hirotnk1118/docker-test:latest",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"James-Yu.latex-workshop",
+				"mhutchie.git-graph",
+				"taichi.vscode-textlint"
+			]
+		}
+	},
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workdir,type=bind",
+	"workspaceFolder": "/workdir",
+	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+}
