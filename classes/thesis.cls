@@ -39,6 +39,7 @@
 \RequirePackage{minted} % ソースコード表示の用パッケージ
 \RequirePackage{siunitx} % SI単位記法に準拠した形式で単位を書くためのパッケージ
 \RequirePackage{subfiles} % 大規模な文章を分割して記述して、統合するためのパッケージ
+\RequirePackage{xr} % 分割されたファイル間でラベルなどを相互参照するためのパッケージ
 \RequirePackage{indentfirst} % 最初の段落でインデントするためのパッケージ
 \RequirePackage{framed} % 囲み付き文章を出すためのパッケージ
 \RequirePackage{type1cm} % 文字の大きさを自由に変えるためのパッケージ
