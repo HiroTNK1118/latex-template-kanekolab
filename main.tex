@@ -1,27 +1,82 @@
 \documentclass{classes/thesis}
 
 \begin{document}
-\bstctlcite{IEEEexample:BSTcontrol}
+
+%%%%%%%% 著者名や題目はここで設定する %%%%%%%%%
+\newcommand{\myNameJa}{
+    %%%%%ここに日本語の著者名を書く
+    %%%%%例：農工太郎
+    農工太郎
+}
+\newcommand{\myNameEn}{
+    %%%%%ここに英語の著者名を書く
+    %%%%%例：Taro NOKO
+    Taro NOKO
+}
+\newcommand{\studentNumber}{
+    %%%%%学籍番号
+    21266XXX
+}
+\newcommand{\yearOfEnrollment}{
+    %%%%%入学年
+    2021
+}
+\newcommand{\titleJa}{
+    %%%%%日本語タイトル，1行で
+    TUAT-EECS金子研究室の卒論・修論用LaTeX実行環境\&テンプレート
+}
+\newcommand{\titleJaLarge}{
+    %%%%%日本語タイトルが長い場合，「\\[3mm]」で改行を含める(表紙でのみ使用)
+    %%%%%通常は\titleJaと同じでOK
+    TUAT-EECS金子研究室の卒論・修論用\\[3mm]
+    LaTeX実行環境\&テンプレート
+}
+\newcommand{\titleEn}{
+    %%%%%英語タイトル，1行で
+    TUAT-EECS Kaneko Lab's LaTeX runtime environment \& templates for graduation thesis \& master's thesis
+}
+\newcommand{\titleEnLarge}{
+    %%%%%英語タイトルが長い場合，「\\[3mm]」で改行を含める(表紙でのみ使用)
+    %%%%%通常は\titleEnと同じでOK
+    TUAT-EECS Kaneko Lab's LaTeX runtime environment \& templates\\[3mm]
+    for graduation thesis \& master's thesis
+}
+\newcommand{\dateOfSubmission}{
+    %%%%%卒論提出日
+    2025年 2月 9日
+}
+\newcommand{\yearOfGraduation}{
+    %%%%%卒業年度
+    2024
+}
+\newcommand{\dateOfSubmissionAbs}{
+    %%%%%要旨提出日
+    2025年 2月 5日
+}
+\newcommand{\teacherName}{
+    %%%%%指導教官名
+    %%%%%例：農工 士郎 教授
+    金子 敬一 教授
+}
 
 \frontmatter
 \subfile{sections/title.tex}
-\newpage
 \subfile{sections/abstract.tex}
 \tableofcontents
 \clearpage
 
 \mainmatter
-\subfile{sections/intro}
-\subfile{sections/relatedwork}
-\subfile{sections/method}
-\subfile{sections/experiment}
-\subfile{sections/discussion}
-\subfile{sections/conclusion}
+\subfile{sections/intro.tex}
+\subfile{sections/relatedwork.tex}
+\subfile{sections/method.tex}
+\subfile{sections/experiment.tex}
+\subfile{sections/discussion.tex}
+\subfile{sections/conclusion.tex}
 
 \backmatter
-\subfile{sections/acknowledgment}
+\subfile{sections/acknowledgment.tex}
 \newpage
-\subfile{sections/references}
+\subfile{sections/references.tex}
 \newpage
-\subfile{sections/appendix}
+\subfile{sections/appendix.tex}
 \end{document}

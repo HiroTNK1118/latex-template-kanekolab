@@ -15,13 +15,19 @@
     foot_space=25mm,
     gutter=25mm,
     fore-edge=25mm,
-    report]
+    book]
     {jlreq}
 
 
-\RequirePackage{ifptex}
-\RequirePackage{ifluatex}
+% LuaTeXを日本語で使うための設定
+\RequirePackage{luatexja}
+% 日本語フォントは原ノ味フォントを使用
+\RequirePackage{luatexja-fontspec}
+% \RequirePackage[haranoaji,no-math]{luatexja-preset}
 
+
+\RequirePackage{graphicx} % 図表関連のパッケージ
+\RequirePackage[unicode,hidelinks,pdfusetitle]{hyperref} % ハイパーリンクのパッケージ
 \PassOptionsToPackage{hyphens}{url}
 \RequirePackage{setspace} % 行間設定用パッケージ
 \RequirePackage{caption} % キャプションとサブキャプションのパッケージ
@@ -43,47 +49,16 @@
 \RequirePackage{indentfirst} % 最初の段落でインデントするためのパッケージ
 \RequirePackage{framed} % 囲み付き文章を出すためのパッケージ
 \RequirePackage{type1cm} % 文字の大きさを自由に変えるためのパッケージ
-
-
-\ifluatex
-    % LuaTeXを日本語で使うための設定
-    \RequirePackage{luatexja}
-    % 日本語フォントは原ノ味フォントを使用
-    \RequirePackage{luatexja-fontspec}
-    \RequirePackage[haranoaji,no-math]{luatexja-preset}
-
-    % 図表関連のパッケージを読み込む
-    \RequirePackage{graphicx}
-
-    % ハイパーリンクを設定
-    \RequirePackage[unicode,hidelinks,pdfusetitle]{hyperref}
-\else
-    \ifuptex
-        % upLaTeXのフォントを設定
-        \RequirePackage[haranoaji,noalphabet]{pxchfon}
-
-        % 図表関連のパッケージを読み込む
-        \RequirePackage{color}
-        \RequirePackage[dvipdfmx]{graphicx}
-
-        % ハイパーリンクを設定
-        \RequirePackage[dvipdfmx,unicode,hidelinks,pdfusetitle]{hyperref}
-
-    \else
-        % pTeXでコンパイルしようとする場合はエラーを出す
-        \ClassError{sice}{This class file is for LuaLaTeX or upLaTeX only.}{Use LuaLaTeX or upLaTeX to compile this document.}
-    \fi
-\fi
-
 \RequirePackage{enumitem} % 高機能番号付き箇条書きのパッケージ
 \RequirePackage{tabularx} % 表の幅を指定するためのパッケージ
-\RequirePackage[backend=biber,style=ieee]{biblatex} % biblatexを使用するためのパッケージ
-\addbibresource{references.bib}
 
-\DeclareFieldFormat*{journaltitle}{\textit{#1}} % 日本語雑誌名を通常に、英語雑誌名を斜体に
-\DeclareFieldFormat*{title}{\textit{#1}}
-\DeclareFieldFormat[inproceedings]{booktitle}{\textit{#1}}
-\DeclareFieldFormat[book]{title}{\textit{#1}}
+% % biblatex関連の設定（今後提供予定）
+% \RequirePackage[backend=biber,style=ieee]{biblatex} % biblatexを使用するためのパッケージ
+% \addbibresource{references.bib}
+% \DeclareFieldFormat*{journaltitle}{\textit{#1}} % 日本語雑誌名を通常に、英語雑誌名を斜体に
+% \DeclareFieldFormat*{title}{\textit{#1}}
+% \DeclareFieldFormat[inproceedings]{booktitle}{\textit{#1}}
+% \DeclareFieldFormat[book]{title}{\textit{#1}}
 
 
 % キャプションとサブキャプションの設定
@@ -109,3 +84,18 @@
 
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{4}
+
+\renewcommand\topfraction{.99} % 頁上部のfloatで占める最大の割合 
+\renewcommand\bottomfraction{.99} % 頁下部のfloatで占める最大の割合
+\renewcommand\textfraction{.01} % １頁のテキスト部の占める最小割合
+
+\newtheorem{definition}{定義}
+
+\makeatletter
+\def\bstctlcite{\@ifnextchar[{\@bstctlcite}{\@bstctlcite[@auxout]}}
+\def\@bstctlcite[#1]#2{\@bsphack
+\@for\@citeb:=#2\do{%
+\edef\@citeb{\expandafter\@firstofone\@citeb}%
+\if@filesw\immediate\write\csname #1\endcsname{\string\citation{\@citeb}}\fi}%
+\@esphack}
+\makeatother
