@@ -7,17 +7,11 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % 1段組み,A4,フォントサイズ11pt
-\LoadClass[
-    a4paper,
-    11pt
-]{ltjsreport}
+\LoadClass[a4paper,11pt]{ltjsreport}
 
 
 % LuaTeXを日本語で使うための設定
 \RequirePackage{luatexja}
-% 日本語フォントは原ノ味フォントを使用
-\RequirePackage{luatexja-fontspec}
-% \RequirePackage[haranoaji,no-math]{luatexja-preset}
 
 
 \RequirePackage{graphicx} % 図表関連のパッケージ
@@ -34,8 +28,7 @@
 \RequirePackage{enumitem} % 高機能番号付き箇条書きのパッケージ
 \RequirePackage{paralist} % インラインリストのパッケージ
 \RequirePackage{amssymb, amsmath} % 高度な数式記述用パッケージ
-\RequirePackage{mathtools} % 高度な数式記述用パッケージ
-% \RequirePackage{newtxtext,newtxmath} % Times系フォントを使用するためのパッケージ
+% \RequirePackage{mathtools} % 高度な数式記述用パッケージ
 \RequirePackage{tabularray} % 高度な表組み用パッケージ
 \RequirePackage{minted} % ソースコード表示の用パッケージ
 \RequirePackage{siunitx} % SI単位記法に準拠した形式で単位を書くためのパッケージ
@@ -45,15 +38,18 @@
 \RequirePackage{framed} % 囲み付き文章を出すためのパッケージ
 \RequirePackage{type1cm} % 文字の大きさを自由に変えるためのパッケージ
 \RequirePackage{enumitem} % 高機能番号付き箇条書きのパッケージ
-\RequirePackage{tabularx} % 表の幅を指定するためのパッケージ
+\RequirePackage{tabularx} % 表の幅を指定するための
 
-% % biblatex関連の設定（今後提供予定）
-% \RequirePackage[backend=biber,style=ieee]{biblatex} % biblatexを使用するためのパッケージ
-% \addbibresource{references.bib}
-% \DeclareFieldFormat*{journaltitle}{\textit{#1}} % 日本語雑誌名を通常に、英語雑誌名を斜体に
-% \DeclareFieldFormat*{title}{\textit{#1}}
-% \DeclareFieldFormat[inproceedings]{booktitle}{\textit{#1}}
-% \DeclareFieldFormat[book]{title}{\textit{#1}}
+% フォントの設定
+% 和文フォント - 原ノ味
+% 英文フォント - STIX Two Text
+% 数式フォント - STIX Two Math
+\RequirePackage{luatexja-fontspec} % luatexjaで日本語と英語のフォントを指定可能にする
+\setmainjfont{HaranoAjiMincho} % 和文フォントに原ノ味明朝を指定
+\setsansjfont{HaranoAjiGothic} % 和文サンセリフ体に原ノ味ゴシックを指定
+\setmainfont{STIX Two Text} % 英文フォントにSTIX Two Textを指定
+\RequirePackage{unicode-math} % 数式フォント設定用のパッケージ
+\setmathfont{STIX Two Math} % 数式フォントにSTIX Two Mathを指定
 
 
 % キャプションとサブキャプションの設定
@@ -62,34 +58,26 @@
 \renewcommand*{\thesubfigure}{(\alph{subfigure})}
 \captionsetup[table]{labelsep=space, labelformat=simple, name=表}
 
-% % sectionのサイズを合わせる
-% \RenewBlockHeading{chapter}{0}{indent=1\jlreq@zw,lines=6,label_format={第\thechapter 章},font={\huge},after_label_space=1\jlreq@zw,second_heading_text_indent={-1\jlreq@zw,1\jlreq@zw},subtitle_font={\jlreq@keepbaselineskip{\Large}}}
-% \RenewBlockHeading{section}{1}{font={\jlreq@keepbaselineskip{\normalsize\bfseries}},after_label_space=1\jlreq@zw}
-% \RenewBlockHeading{subsection}{2}{font={\jlreq@keepbaselineskip{\normalsize\bfseries}},after_label_space=1\jlreq@zw}
-% \RenewBlockHeading{subsubsection}{3}{font={\jlreq@keepbaselineskip{\normalsize\bfseries}},after_label_space=1\jlreq@zw}
-% % セクション類の空白の設定
-% \ModifyHeading{section}{before_space=5pt, after_space=5pt}
-% \ModifyHeading{subsection}{before_space=5pt, after_space=5pt}
-% \ModifyHeading{subsubsection}{before_space=5pt, after_space=5pt}
-% % セクションタイトルが一行以下なら下、２行以上なら上
-% \ModifyHeading{section}{lines=1}
-% \ModifyHeading{subsection}{lines=1}
-% \ModifyHeading{subsubsection}{lines=1}
-
-% \setcounter{tocdepth}{2}
-% \setcounter{secnumdepth}{3}
-
 \renewcommand\topfraction{.99} % 頁上部のfloatで占める最大の割合 
 \renewcommand\bottomfraction{.99} % 頁下部のfloatで占める最大の割合
 \renewcommand\textfraction{.01} % １頁のテキスト部の占める最小割合
 
 \newtheorem{definition}{定義}
 
-\makeatletter
-\def\bstctlcite{\@ifnextchar[{\@bstctlcite}{\@bstctlcite[@auxout]}}
-\def\@bstctlcite[#1]#2{\@bsphack
-\@for\@citeb:=#2\do{%
-\edef\@citeb{\expandafter\@firstofone\@citeb}%
-\if@filesw\immediate\write\csname #1\endcsname{\string\citation{\@citeb}}\fi}%
-\@esphack}
-\makeatother
+% 図目次を作成するマクロ
+\providecommand{\iflistoffigures}{
+  \ifnum\value{figure}>0
+    \addcontentsline{toc}{chapter}{\listfigurename} % 目次に図目次を追加
+    \listoffigures % 図目次を表示
+    \cleardoublepage % 次の目次との間に改ページを挿入
+  \fi
+}
+
+% 表目次を作成するマクロ
+\providecommand{\iflistoftables}{
+  \ifnum\value{table}>0
+    \addcontentsline{toc}{chapter}{\listtablename} % 目次に表目次を追加
+    \listoftables % 表目次を表示
+    \cleardoublepage % 本文との間に改ページを挿入
+  \fi
+}
