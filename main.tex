@@ -1,7 +1,5 @@
 \documentclass{classes/thesis}
 
-\begin{document}
-
 %%%%%%%% 著者名や題目はここで設定する %%%%%%%%%
 \newcommand{\myNameJa}{
     %%%%%ここに日本語の著者名を書く
@@ -23,23 +21,25 @@
 }
 \newcommand{\titleJa}{
     %%%%%日本語タイトル，1行で
-    TUAT-EECS金子研究室の卒論・修論用LaTeX実行環境\&テンプレート
+    金子研究室の卒論・修論用 {\LaTeX} 実行環境\&テンプレート
 }
 \newcommand{\titleJaLarge}{
     %%%%%日本語タイトルが長い場合，「\\[3mm]」で改行を含める(表紙でのみ使用)
     %%%%%通常は\titleJaと同じでOK
-    TUAT-EECS金子研究室の卒論・修論用\\[3mm]
-    LaTeX実行環境\&テンプレート
+    金子研究室の卒論・修論用\\
+    \vspace{3mm}
+    {\LaTeX} 実行環境\&テンプレート
 }
 \newcommand{\titleEn}{
     %%%%%英語タイトル，1行で
-    TUAT-EECS Kaneko Lab's LaTeX runtime environment \& templates for graduation thesis \& master's thesis
+    {\LaTeX} runtime environment \& template for Kaneko Lab's graduation \& master's thesis
 }
 \newcommand{\titleEnLarge}{
     %%%%%英語タイトルが長い場合，「\\[3mm]」で改行を含める(表紙でのみ使用)
     %%%%%通常は\titleEnと同じでOK
-    TUAT-EECS Kaneko Lab's LaTeX runtime environment \& templates\\[3mm]
-    for graduation thesis \& master's thesis
+    {\LaTeX} runtime environment \& template\\
+    \vspace{3mm}
+    for Kaneko Lab's graduation \& master's thesis
 }
 \newcommand{\dateOfSubmission}{
     %%%%%卒論提出日
@@ -59,24 +59,46 @@
     金子 敬一 教授
 }
 
+% マクロ\bstctlciteの定義：
+% 文献リストで同一著者名が連続したとき-----のように省略されないようにする
+% \begin{document}直下に宣言して使用すること
+\makeatletter
+\def\bstctlcite{\@ifnextchar[{\@bstctlcite}{\@bstctlcite[@auxout]}}
+\def\@bstctlcite[#1]#2{\@bsphack
+\@for\@citeb:=#2\do{%
+\edef\@citeb{\expandafter\@firstofone\@citeb}%
+\if@filesw\immediate\write\csname #1\endcsname{\string\citation{\@citeb}}\fi}%
+\@esphack}
+\makeatother
+
+\begin{document}
+\bstctlcite{IEEEexample:BSTcontrol}
+
+% 前付け（ページ番号はローマ数字を用いる）
 \pagenumbering{roman}
-\subfile{sections/title.tex}
-\subfile{sections/abstract.tex}
-\tableofcontents
-\clearpage
+\subfile{sections/title.tex} % 表紙
+\subfile{sections/abstract.tex} % 要旨
+\tableofcontents % 目次
+\cleardoublepage
+\listoffigures % 図目次
+\cleardoublepage
+\listoftables % 表目次
+\cleardoublepage
 
+% 本文（ページ番号はアラビア数字を用いる）
 \pagenumbering{arabic}
-\subfile{sections/intro.tex}
-\subfile{sections/relatedwork.tex}
-\subfile{sections/method.tex}
-\subfile{sections/experiment.tex}
-\subfile{sections/discussion.tex}
-\subfile{sections/conclusion.tex}
+\subfile{sections/intro.tex} % 緒言
+\subfile{sections/relatedwork.tex} % 関連研究
+\subfile{sections/method.tex} % 提案手法
+\subfile{sections/experiment.tex} % 評価実験
+\subfile{sections/discussion.tex} % 考察
+\subfile{sections/conclusion.tex} % 結言
 
-
-\subfile{sections/acknowledgment.tex}
+% 後付け
+\subfile{sections/acknowledgment.tex} % 謝辞
 \newpage
-\subfile{sections/references.tex}
+\bibliography{references.bib} % 文献リスト
+\bibliographystyle{jIEEEtran} % 文献リストのスタイルを指定
 \newpage
-\subfile{sections/appendix.tex}
+\subfile{sections/appendix.tex} % 付録
 \end{document}
