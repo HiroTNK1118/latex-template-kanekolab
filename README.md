@@ -1,3 +1,4 @@
+
 # latex-template-kanekolab
 
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
@@ -13,7 +14,7 @@
 * Windows 10 or later
 * Visual Studio Code
 * Docker Desktop for Windows
-* Git for Windows
+<!-- * Git for Windows -->
 
 <!-- ※macOSについてはこちらをご利用ください． -->
 
@@ -39,37 +40,32 @@ wsl --install
 
 Windows環境においては，Docker DesktopというソフトウェアによってDocker環境を利用します．
 
-公式サイトからインストーラーをダウンロードします．
-https://www.docker.com/ja-jp/products/docker-desktop/
+[Docker Desktop 公式サイト](https://www.docker.com/ja-jp/products/docker-desktop/)からインストーラーをダウンロードします．
 
 「Docker Desktop をダウンロードする」にカーソルを合わせて出てくるドロップダウンリストの中から，
 「Windows用をダウンロード - AMD64」を選択します．
 ![Docker Desktop 公式サイト](<figures/スクリーンショット 2024-11-15 171014.png>)
 
 ダウンロードされたインストーラーを起動し，画面の指示に従って進めてください．
-詳しいインストール方法は以下のサイトを参考にしてください．
-https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3
+詳しいインストール方法は[このサイト](https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3)を参考にしてください．
 
-### 3. Gitのインストール
+<!-- ### 3. Gitのインストール
 
 本テンプレートの配布にはGitというソースコード管理ソフトを用いています．
 
-Git for Windows 公式サイトからインストーラーをダウンロードします．
-https://gitforwindows.org/
+[Git for Windows 公式サイト](https://gitforwindows.org/)からインストーラーをダウンロードします．
 
 「Download」をクリックするとインストーラーが自動でダウンロードされます．
 ![Git for Windows 公式サイト](<figures/スクリーンショット 2024-11-21 163514.png>)
 
 ダウンロードされたインストーラーを起動し，画面の指示に従って進めてください．
-詳しいインストール方法は以下のサイトを参考にしてください．
-https://qiita.com/T-H9703EnAc/items/4fbe6593d42f9a844b1c
-
+詳しいインストール方法は[このサイト](https://qiita.com/T-H9703EnAc/items/4fbe6593d42f9a844b1c)を参考にしてください． -->
 
 ## 本テンプレートのセットアップ
 
 ### 1. GitHubからダウンロード
 
-環境のセットアップを終えたら，このテンプレートをご自身のPCにダウンロードしましょう．
+<!-- 環境のセットアップを終えたら，このテンプレートをご自身のPCにダウンロードしましょう．
 
 このテンプレートを配置したいディレクトリをターミナルで開き，次のコマンドを入力します．
 
@@ -77,7 +73,7 @@ https://qiita.com/T-H9703EnAc/items/4fbe6593d42f9a844b1c
 git clone https://github.com/HiroTNK1118/latex-template-kanekolab.git
 ```
 
-GitHubからテンプレートがダウンロードされます．
+GitHubからテンプレートがダウンロードされます． -->
 
 ### 2. VSCode DevContainer で開く
 
