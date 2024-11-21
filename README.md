@@ -41,6 +41,7 @@ wsl --install
 Windows環境においては，Docker DesktopというソフトウェアによってDocker環境を利用します．
 
 [Docker Desktop 公式サイト](https://www.docker.com/ja-jp/products/docker-desktop/)からインストーラーをダウンロードします．
+[Docker Desktop 公式サイト](https://www.docker.com/ja-jp/products/docker-desktop/)からインストーラーをダウンロードします．
 
 「Docker Desktop をダウンロードする」にカーソルを合わせて出てくるドロップダウンリストの中から，
 「Windows用をダウンロード - AMD64」を選択します．
@@ -48,11 +49,13 @@ Windows環境においては，Docker Desktopというソフトウェアによ�
 
 ダウンロードされたインストーラーを起動し，画面の指示に従って進めてください．
 詳しいインストール方法は[このサイト](https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3)を参考にしてください．
+詳しいインストール方法は[このサイト](https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3)を参考にしてください．
 
 <!-- ### 3. Gitのインストール
 
 本テンプレートの配布にはGitというソースコード管理ソフトを用いています．
 
+[Git for Windows 公式サイト](https://gitforwindows.org/)からインストーラーをダウンロードします．
 [Git for Windows 公式サイト](https://gitforwindows.org/)からインストーラーをダウンロードします．
 
 「Download」をクリックするとインストーラーが自動でダウンロードされます．
