@@ -41,7 +41,9 @@ Windows環境においては，Docker Desktopというソフトウェアによ�
 
 公式サイトからインストーラーをダウンロードします．
 
-<https://www.docker.com/ja-jp/products/docker-desktop/>
+
+https://www.docker.com/ja-jp/products/docker-desktop/
+
 
 「Docker Desktop をダウンロードする」にカーソルを合わせて出てくるドロップダウンリストの中から，
 「Windows用をダウンロード - AMD64」を選択します．
@@ -50,7 +52,9 @@ Windows環境においては，Docker Desktopというソフトウェアによ�
 ダウンロードされたインストーラーを起動し，画面の指示に従って進めてください．
 詳しいインストール方法は以下のサイトを参考にしてください．
 
-<https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3>
+
+https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3
+
 
 ### 3. Gitのインストール
 
@@ -58,7 +62,9 @@ Windows環境においては，Docker Desktopというソフトウェアによ�
 
 Git for Windows 公式サイトからインストーラーをダウンロードします．
 
-<https://gitforwindows.org/>
+
+https://gitforwindows.org/
+
 
 「Download」をクリックするとインストーラーが自動でダウンロードされます．
 ![Git for Windows 公式サイト](<figures/スクリーンショット 2024-11-21 163514.png>)
@@ -66,7 +72,9 @@ Git for Windows 公式サイトからインストーラーをダウンロード�
 ダウンロードされたインストーラーを起動し，画面の指示に従って進めてください．
 詳しいインストール方法は以下のサイトを参考にしてください．
 
-<https://qiita.com/T-H9703EnAc/items/4fbe6593d42f9a844b1c>
+
+https://qiita.com/T-H9703EnAc/items/4fbe6593d42f9a844b1c
+
 
 ## 本テンプレートのセットアップ
 
@@ -86,8 +94,10 @@ GitHubからテンプレートがダウンロードされます．
 
 ダウンロードされた`latex-template-kanekolab`ディレクトリをVSCodeで開きなおします．
 ![VSCode](<figures/スクリーンショット 2024-11-21 170318.png>)
+
 タブの右下に表示されるダイアログボックスの「コンテナーで再度開く」を選択してください．
 ![ダイアログボックス](<figures/スクリーンショット 2024-11-21 170318 (1).png>)
+
 後は自動でTex環境を含む諸々がインストール・セットアップされ，次の状態になったら準備完了です．
 ![alt text](<figures/スクリーンショット 2024-11-21 170903.png>)
 
