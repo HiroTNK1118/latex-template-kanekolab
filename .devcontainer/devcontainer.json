@@ -1,6 +1,6 @@
 {
-  "name": "LaTeX on DevContainer",
-  "image": "ghcr.io/hirotnk1118/docker-test:latest",
+	"name": "LaTeX on DevContainer",
+	"image": "ghcr.io/hirotnk1118/docker-test:latest",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -12,5 +12,6 @@
 	},
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workdir,type=bind",
 	"workspaceFolder": "/workdir",
-	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+	"remoteUser": "latex"
 }

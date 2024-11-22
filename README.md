@@ -41,14 +41,13 @@ wsl --install
 Windows環境においては，Docker DesktopというソフトウェアによってDocker環境を利用します．
 
 [Docker Desktop 公式サイト](https://www.docker.com/ja-jp/products/docker-desktop/)からインストーラーをダウンロードします．
-[Docker Desktop 公式サイト](https://www.docker.com/ja-jp/products/docker-desktop/)からインストーラーをダウンロードします．
 
 「Docker Desktop をダウンロードする」にカーソルを合わせて出てくるドロップダウンリストの中から，
-「Windows用をダウンロード - AMD64」を選択します．
+「Windows用をダウンロード - AMD64」をクリックします．
+
 ![Docker Desktop 公式サイト](<figures/スクリーンショット 2024-11-15 171014.png>)
 
 ダウンロードされたインストーラーを起動し，画面の指示に従って進めてください．
-詳しいインストール方法は[このサイト](https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3)を参考にしてください．
 詳しいインストール方法は[このサイト](https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3)を参考にしてください．
 
 <!-- ### 3. Gitのインストール
@@ -68,7 +67,9 @@ Windows環境においては，Docker Desktopというソフトウェアによ�
 
 ### 1. GitHubからダウンロード
 
-<!-- 環境のセットアップを終えたら，このテンプレートをご自身のPCにダウンロードしましょう．
+環境のセットアップを終えたら，このテンプレートをご自身のPCにダウンロードしましょう．
+
+#### Gitがインストール済みの場合
 
 このテンプレートを配置したいディレクトリをターミナルで開き，次のコマンドを入力します．
 
@@ -76,17 +77,29 @@ Windows環境においては，Docker Desktopというソフトウェアによ�
 git clone https://github.com/HiroTNK1118/latex-template-kanekolab.git
 ```
 
-GitHubからテンプレートがダウンロードされます． -->
+GitHubからテンプレートがダウンロードされます．
+
+#### Gitがインストールされていない場合
+
+GitHubのCodeページの「<> Code」にカーソルを合わせて出てくるドロップダウンリストの中から
+「Download ZIP」をクリックします．
+
+![GitHubからダウンロード](<figures/スクリーンショット 2024-11-22 145955.png>)
+
+ダウンロードされた`latex-tenplate-kanekolab-main.zip`を任意のディレクトリで解凍しましょう．
 
 ### 2. VSCode DevContainer で開く
 
-ダウンロードされた`latex-template-kanekolab`ディレクトリをVSCodeで開きなおします．
+ダウンロードされたフォルダをVSCodeで開きなおします．
+
 ![VSCode](<figures/スクリーンショット 2024-11-21 170318.png>)
 
 タブの右下に表示されるダイアログボックスの「コンテナーで再度開く」を選択してください．
+
 ![ダイアログボックス](<figures/スクリーンショット 2024-11-21 170318 (1).png>)
 
 後は自動でTex環境を含む諸々がインストール・セットアップされ，次の状態になったら準備完了です．
+
 ![alt text](<figures/スクリーンショット 2024-11-21 170903.png>)
 
-## 本テンプレートの使用方法
+<!-- ## 本テンプレートの使用方法 -->
