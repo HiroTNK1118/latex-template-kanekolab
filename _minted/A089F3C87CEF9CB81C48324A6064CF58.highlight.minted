@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{os}
+\PYG{k+kn}{from} \PYG{n+nn}{dotenv} \PYG{k+kn}{import} \PYG{n}{load\PYGZus{}dotenv}
+\PYG{k+kn}{import} \PYG{n+nn}{google}\PYG{n+nn}{.}\PYG{n+nn}{generativeai} \PYG{k}{as} \PYG{n+nn}{genai}
+
+\PYG{c+c1}{\PYGZsh{} 環境変数の読み込み}
+\PYG{n}{load\PYGZus{}dotenv}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{genai}\PYG{o}{.}\PYG{n}{configure}\PYG{p}{(}\PYG{n}{api\PYGZus{}key}\PYG{o}{=}\PYG{n}{os}\PYG{o}{.}\PYG{n}{environ}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{GEMINI\PYGZus{}API\PYGZus{}KEY}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{model} \PYG{o}{=} \PYG{n}{genai}\PYG{o}{.}\PYG{n}{GenerativeModel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{gemini\PYGZhy{}1.5\PYGZhy{}flash}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{MintedVerbatim}

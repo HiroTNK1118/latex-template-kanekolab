@@ -59,21 +59,7 @@
     金子 敬一 教授
 }
 
-% マクロ\bstctlciteの定義：
-% 文献リストで同一著者名が連続したとき-----のように省略されないようにする
-% \begin{document}直下に宣言して使用すること
-\makeatletter
-\def\bstctlcite{\@ifnextchar[{\@bstctlcite}{\@bstctlcite[@auxout]}}
-\def\@bstctlcite[#1]#2{\@bsphack
-\@for\@citeb:=#2\do{%
-\edef\@citeb{\expandafter\@firstofone\@citeb}%
-\if@filesw\immediate\write\csname #1\endcsname{\string\citation{\@citeb}}\fi}%
-\@esphack}
-\makeatother
-
 \begin{document}
-\bstctlcite{IEEEexample:BSTcontrol}
-
 % 前付け（ページ番号はローマ数字を用いる）
 \pagenumbering{roman}
 \subfile{sections/title.tex} % 表紙

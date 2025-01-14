@@ -1,4 +1,5 @@
 %% 卒論用カスタム済みjIEEEtran.bst 
+%% by 田中寛明 Jan. 2025 
 %% by 小原悠ノ介 Feb. 2023
 %% 
 %% jIEEEtran.bst
@@ -276,17 +277,18 @@ FUNCTION {format.month.ieee} { #1 }
 % 「手法Aと手法B、どちらが正しいのか?」，学会名
 % "Method A and B - Which is correct?", Journal title
 % のように"の後にカンマを打つかの設定
-% #0: カンマを打たない, #1: カンマを打つ
+% #0 : カンマを打たない
+% #1 : カンマを打つ
 % default: { #1 }
 FUNCTION { bbl.ieej.force.punct.aft.quote } { #1 }
 
 
 % languageにJapaneseやFrenchの指定がある場合に
 % (in Language)を表記するかの設定
-% #0 言語表記しない
-% #1 IEEE-Reference-Guideの通りに言語表記する
-%    https://ieeeauthorcenter.ieee.org/wp-content/uploads/IEEE-Reference-Guide.pdf
-% #2 文献末尾に言語表記する
+% #0 : 言語表記しない
+% #1 : IEEE-Reference-Guideの通りに言語表記する
+%      https://ieeeauthorcenter.ieee.org/wp-content/uploads/IEEE-Reference-Guide.pdf
+% #2 : 文献末尾に言語表記する
 % default : {bbl.format.language.ieej} { #2 }
 %           {bbl.format.language.ieee} { #1 }
 FUNCTION {bbl.format.language.ieej} { #2 }
@@ -300,8 +302,10 @@ FUNCTION {bbl.format.language}
 
 
 % language表記の後にピリオドを打つかの設定
-% default : { #1 } % for jIEEEtran.bst (デフォルト通りで強制しない)
-%           { #0 } % for IEEJtran.bst (ピリオドを強制的に打たせない)
+% #0 : デフォルト通りで強制しない
+% #1 : ピリオドを強制的に打たせない
+% default : { #1 } % for jIEEEtran.bst
+%           { #0 } % for IEEJtran.bst
 FUNCTION {bbl.format.language.punct.ieej} { #0 }
 FUNCTION {bbl.format.language.punct.ieee} { #1 }
 FUNCTION {bbl.format.language.punct}
@@ -315,8 +319,8 @@ FUNCTION {bbl.format.language.punct}
 % select.language関数を用いてタイトルジャーナル名に
 % \BIBforeignlanguage{Japanese}
 % などのhyphenation設定の処理を行うかの設定。
-% { #1 } : hyphenation設定を行う(設定していないとWARNINGが出る。
-% { #0 } : hyphenation設定を行わない
+% #1 : hyphenation設定を行う(設定していないとWARNINGが出る。
+% #0 : hyphenation設定を行わない
 % default : { #0 }
 FUNCTION {bbl.use.select.language} { #0 }
 
@@ -329,12 +333,12 @@ FUNCTION {default.is.use.url.ieee} {#1}
 
 
 % 同一著者の文献が連続した場合に著者名を長ダッシュで代用するかの設定
-% 電気学会形式では長ダッシュで代用はしない
-% IEEE形式では長ダッシュで代用する
-% default : { default.is.dash.repeated.names.ieej } { #0 }
-%           { default.is.dash.repeated.names.ieee } { #1 }
+% #0 : 長ダッシュで代用はしない
+% #1 : 長ダッシュで代用する
+% default : { default.is.dash.repeated.names.ieej } { #0 } 電気学会形式
+%           { default.is.dash.repeated.names.ieee } { #1 } IEEE形式
 FUNCTION { default.is.dash.repeated.names.ieej } { #0 }
-FUNCTION { default.is.dash.repeated.names.ieee } { #1 }
+FUNCTION { default.is.dash.repeated.names.ieee } { #0 }
 
 
 % IEEEtran.bstに元からあるオプション群
