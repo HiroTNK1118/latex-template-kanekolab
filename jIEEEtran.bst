@@ -164,7 +164,7 @@ FUNCTION {bbl.ieej.en.title.aft} { "''" }
 %          {bbl.ieej.en.author.title.sep.A} { "," }
 FUNCTION {bbl.ieej.jp.author.title.sep.F} { "：" }
 FUNCTION {bbl.ieej.en.author.title.sep.F} { ":" }
-FUNCTION {bbl.ieej.jp.author.title.sep.A} { "，" }
+FUNCTION {bbl.ieej.jp.author.title.sep.A} { ", " }
 FUNCTION {bbl.ieej.en.author.title.sep.A} { "," }
 
 
@@ -548,7 +548,8 @@ FUNCTION {bbl.th}{ "th" }
 
 % This is the LaTeX spacer that is used when a larger than normal space
 % is called for (such as just before the address:publisher).
-FUNCTION {large.space} { "\hskip 1em plus 0.5em minus 0.4em\relax " }
+% FUNCTION {large.space} { "\hskip 1em plus 0.5em minus 0.4em\relax " }
+FUNCTION {large.space} { "\;\relax " }
 
 % The LaTeX code for dashes that are used to represent repeated names.
 % Note: Some older IEEE journals used something like
@@ -1078,7 +1079,8 @@ FUNCTION {output.nonnull}
     { skip$ }
   if$
   prev.status.punct punct.period =
-    { japanese.flag #0 = { add.period$ } { "．" * } if$ }
+    % { japanese.flag #0 = { add.period$ } { "．" * } if$ }
+    { japanese.flag #0 = { add.period$ } { "." * } if$ }
     { skip$ }
   if$
   % use.ieej.setting #0 = japanese.flag #0 = and
@@ -1602,7 +1604,8 @@ FUNCTION {format.jp.edition}
 
 FUNCTION {bbl.title.edition.sep}
 % 本のタイトルと版情報の間の区切り文字を制御。
-{ japanese.flag #1 = { "，" * } { ", " * } if$ }
+% { japanese.flag #1 = { "，" * } { ", " * } if$ }
+{ japanese.flag #1 = { ", " * } { ", " * } if$ }
 
 
 FUNCTION {format.jp.year}
@@ -1629,7 +1632,8 @@ FUNCTION {author.sep}
 % IEEEでも電気学会でも、最後の著者以外は
 % 所定文字を場合分けして挿入する
 { use.ieej.setting #0 =
-    { japanese.flag #1 = { "，" } { ", " } if$ }
+    % { japanese.flag #1 = { "，" } { ", " } if$ }
+    { japanese.flag #1 = { ", " } { ", " } if$ }
     { japanese.flag #1 = { bbl.ieej.jp.author.sep } { bbl.ieej.en.author.sep } if$ }
   if$
 }
@@ -1644,7 +1648,7 @@ FUNCTION {author.sep.last}
             { "" * bbl.and space.word } % 英語で著者が2人以下の場合、カンマなしで and を挿入
           if$
         }
-        { "，" }                      % 日本語では他と同様に全角カンマのみ
+        { ", " }                      % 日本語では他と同様に全角カンマのみ
       if$
     }
     { japanese.flag #0 =              % 電気学会形式の場合、and を使用せず、予め設定したものを返す
@@ -1841,7 +1845,8 @@ FUNCTION {format.address.org.or.pub.date}
             { skip$ }
             { use.ieej.setting #1 = 
               { japanese.flag #1 = { skip$ } { " " * } if$ }
-              { japanese.flag #1 = { "，" * } { ", " * } if$ }
+              % { japanese.flag #1 = { "，" * } { ", " * } if$ }
+              { japanese.flag #1 = { ", " * } { ", " * } if$ }
               if$
             }
           if$
